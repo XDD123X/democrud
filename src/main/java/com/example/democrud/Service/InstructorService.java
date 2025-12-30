@@ -47,6 +47,10 @@ public class InstructorService {
         instructorRepository.deleteById(id);
     }
 
+    public void deleteAllInstructors() {
+        instructorRepository.deleteAll();
+    }
+
     public List<Instructor> getInstructorsByDepartmentName(String departmentName) {
         return instructorRepository.findByDept(departmentName);
     }
