@@ -73,4 +73,15 @@ public class Instructor {
     public void setDepartment(Department department) {
         this.department = department;
     }
+
+    @Override
+    public String toString() {
+        return "Instructor{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", phone='" + phone + '\'' +
+                ", department=" + (department != null ? department.getName() : null) +
+                '}';
+    }
 }
