@@ -6,6 +6,5 @@ import org.springframework.stereotype.Repository;
 import com.example.democrud.Entity.Department;
 
 @Repository
-public interface DepartmentRepository extends JpaRepository<Department, Integer> {
-
+public interface DepartmentRepository extends JpaRepository<Department, String> {
 }
