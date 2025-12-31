@@ -28,4 +28,10 @@ public class OriginalSong extends Song {
     public void setOriginalArtist(String originalArtist) {
         this.originalArtist = originalArtist;
     }
+
+    @Override
+    public String toString() {
+        return "OriginalSong [originalArtist=" + originalArtist + ", getId()=" + getId() + ", getTitle()=" + getTitle()
+                + ", getArtist()=" + getArtist() + ", getReleased()=" + getReleased() + "]";
+    }
 }

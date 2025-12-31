@@ -16,8 +16,8 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "songs")
-// @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@Inheritance(strategy = InheritanceType.JOINED)
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+// @Inheritance(strategy = InheritanceType.JOINED)
 // hoặc JOINED / TABLE_PER_CLASS
 @DiscriminatorColumn(name = "song_type")
 public class Song {

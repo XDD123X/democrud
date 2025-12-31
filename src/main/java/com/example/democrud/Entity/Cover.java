@@ -27,4 +27,10 @@ public class Cover extends Song {
     public void setCoverArtist(String coverArtist) {
         this.coverArtist = coverArtist;
     }
+
+    @Override
+    public String toString() {
+        return "Cover [coverArtist=" + coverArtist + ", getId()=" + getId() + ", getTitle()=" + getTitle()
+                + ", getArtist()=" + getArtist() + ", getReleased()=" + getReleased() + "]";
+    }
 }

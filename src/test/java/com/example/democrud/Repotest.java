@@ -12,10 +12,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.mock.web.MockMultipartFile;
 
+import com.example.democrud.Entity.Cover;
 import com.example.democrud.Entity.Department;
 import com.example.democrud.Entity.Instructor;
+import com.example.democrud.Entity.Song;
 import com.example.democrud.Repository.DepartmentRepository;
 import com.example.democrud.Repository.InstructorRepository;
+import com.example.democrud.Repository.SongRepository;
 import com.example.democrud.Service.InstructorService;
 
 @SpringBootTest
@@ -29,6 +32,9 @@ class Repotest {
 
     @Autowired
     private InstructorService instructorService;
+
+    @Autowired
+    private SongRepository songRepository;
 
     @Test
     void save_instructor_success() {
@@ -88,4 +94,20 @@ class Repotest {
         assertTrue(list.isEmpty());
     }
 
+    @Test
+    void CreateSong() {
+        Song coverSong = new Cover("Song Title", "Artist Name", java.time.LocalDate.of(2023, 1, 1), "Cover Artist");
+        Song originalSong = new com.example.democrud.Entity.OriginalSong("Original Song Title", "Original Artist Name",
+                java.time.LocalDate.of(2022, 5, 15), "Original Artist");
+        songRepository.save(coverSong);
+        songRepository.save(originalSong);
+        assertNotNull(originalSong.getId());
+        assertNotNull(coverSong.getId());
+
+        Song fetched = songRepository.findById(coverSong.getId()).orElse(null);
+        System.out.println("Fetched Song = " + fetched);
+        fetched = songRepository.findById(originalSong.getId()).orElse(null);
+        System.out.println("Fetched Song = " + fetched);
+        assertNotNull(fetched);
+    }
 }
